@@ -1,7 +1,4 @@
 open Lexing
-open Lexer
-open Grammar
-open Semantics
 
 let () = 
   let lexbuf = Lexing.from_channel stdin in
