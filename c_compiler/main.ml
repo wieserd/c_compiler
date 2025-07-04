@@ -5,9 +5,8 @@ open Grammar
 let () = 
   let lexbuf = Lexing.from_channel stdin in
   try
-    let program = Grammar.program Lexer.token lexbuf in
+    let _program = Grammar.program Lexer.token lexbuf in (* _program to suppress unused variable warning *)
     Printf.printf "Parsing successful!\n";
-    (* You can add code here to process the 'program' AST *)
   with
   | Failure msg ->
     Printf.eprintf "Lexing error: %s at line %d, character %d\n" msg
