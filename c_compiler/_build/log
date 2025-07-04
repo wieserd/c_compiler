@@ -1,0 +1,50 @@
+# dune build
+# OCAMLPARAM: unset
+# Shared cache: enabled-except-user-rules
+# Shared cache location: /Users/dw2022/.cache/dune/db
+# Workspace root: /Users/dw2022/c_compiler/c_compiler
+# Auto-detected concurrency: 10
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dev
+#  ; merlin = true
+#  ; fdo_target_exe = None
+#  ; build_dir = In_build_dir "default"
+#  ; instrument_with = []
+#  }
+$ /opt/homebrew/bin/ocamlc.opt -config > /var/folders/r2/pqlk57153zz6b5t5dj_wbwyw0000gn/T/dune_904b27_output
+$ (cd _build/default && /opt/homebrew/bin/ocamllex -o lexer.ml lexer.mll)
+> File "lexer.mll", line 1, character 1: illegal character %.
+[3]
+$ (cd _build/default && /Users/dw2022/.opam/default/bin/menhir --external-tokens Parser --table --explain --base parser parser.mly)
+> File "parser.mly", line 2, characters 16-26:
+> Warning: the token IDENTIFIER is unused.
+> File "parser.mly", line 3, characters 7-10:
+> Warning: the token INT is unused.
+> File "parser.mly", line 1, characters 13-24:
+> Warning: the token INT_LITERAL is unused.
+> File "parser.mly", line 3, characters 54-60:
+> Warning: the token LBRACE is unused.
+> File "parser.mly", line 3, characters 40-46:
+> Warning: the token LPAREN is unused.
+> File "parser.mly", line 3, characters 23-28:
+> Warning: the token MINUS is unused.
+> File "parser.mly", line 3, characters 18-22:
+> Warning: the token PLUS is unused.
+> File "parser.mly", line 3, characters 61-67:
+> Warning: the token RBRACE is unused.
+> File "parser.mly", line 3, characters 11-17:
+> Warning: the token RETURN is unused.
+> File "parser.mly", line 3, characters 47-53:
+> Warning: the token RPAREN is unused.
+> File "parser.mly", line 3, characters 68-77:
+> Warning: the token SEMICOLON is unused.
+> File "parser.mly", line 3, characters 34-39:
+> Warning: the token SLASH is unused.
+> File "parser.mly", line 3, characters 29-33:
+> Warning: the token STAR is unused.
+> File "parser.mly", line 6, characters 13-20:
+> File "parser.mly", line 5, characters 14-21:
+> Error: there are multiple %type declarations for the symbol program.
+[1]
