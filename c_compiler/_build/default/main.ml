@@ -1,5 +1,4 @@
 open Lexing
-open Lexer
 open Tokens
 
 let () = 
