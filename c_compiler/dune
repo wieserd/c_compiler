@@ -1,7 +1,7 @@
 (executable
  (name main)
  (libraries menhirLib)
- (modules main lexer parser))
+ (modules main lexer grammar))
 
 (rule
  (targets lexer.ml)
@@ -10,7 +10,7 @@
   (run ocamllex -o %{targets} %{deps})))
 
 (rule
- (targets parser.ml parser.mli)
- (deps parser.mly)
+ (targets grammar.ml grammar.mli)
+ (deps grammar.mly)
  (action
-  (run menhir --external-tokens Parser --table --explain --base parser %{deps})))
+  (run menhir --external-tokens Grammar --table --explain --base grammar %{deps})))

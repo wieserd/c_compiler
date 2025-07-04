@@ -2,7 +2,7 @@
 %token <string> IDENTIFIER
 %token INT RETURN PLUS MINUS STAR SLASH LPAREN RPAREN LBRACE RBRACE SEMICOLON EOF
 
-%start <unit> program
+%start program
 %type <unit> program
 
 %%
