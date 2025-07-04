@@ -1,7 +1,7 @@
 (executable
  (name main)
  (libraries menhirLib)
- (modules main lexer grammar tokens)
+ (modules main lexer grammar tokens ast)
  (modules_without_implementation tokens))
 
 (rule
