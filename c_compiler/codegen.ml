@@ -1,5 +1,4 @@
 open Ir
-open Ast
 
 (* Define basic x86-64 assembly instructions *)
 type assembly_instruction =
@@ -20,14 +19,14 @@ let ast_expression_to_asm_operand (expr: Ast.expression) : string =
   | Ast.Identifier id -> id (* For now, assume identifiers are directly usable as operands *)
 
 (* Function to generate assembly from IR instructions *)
-let rec generate_assembly_from_ir (ir_list: ir_instruction list) : assembly_instruction list = 
+let generate_assembly_from_ir (ir_list: ir_instruction list) : assembly_instruction list = 
   List.concat (List.map (fun ir_instr ->
     match ir_instr with
     | I_Return expr ->
       [ Mov ("rax", ast_expression_to_asm_operand expr)
       ; Ret
       ]
-    | I_Declare id ->
+    | I_Declare _id ->
       (* For now, declarations don't generate explicit assembly instructions here.
          They will be handled by stack management in a more complete compiler. *)
       []
