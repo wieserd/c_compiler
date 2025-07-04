@@ -2,21 +2,25 @@
 
 This document outlines the structure of a compiler for the C programming language, written in OCaml.
 
+## Current Status
+
+The project is now set up with a working lexer and parser generation. The `dune` build system is configured to generate `lexer.ml` from `lexer.mll` and `grammar.ml` (and `grammar.mli`) from `grammar.mly`.
+
 ## 1. The Lexer (Lexical Analysis)
 
 *   **Purpose:** To convert the raw C source code (a stream of characters) into a stream of tokens.
-*   **Implementation:** This will be implemented using `ocamllex`, a lexical analyzer generator.
-*   **Input:** `program.c`
+*   **Implementation:** This is implemented using `ocamllex`, a lexical analyzer generator.
+*   **Input:** `program.c` (conceptually, currently takes input from stdin in `main.ml` for testing).
 *   **Output:** A list of tokens, e.g., `[INT(5); PLUS; IDENT("x"); SEMICOLON]`
 *   **Modules:** `lexer.mll`
 
 ## 2. The Parser (Syntax Analysis)
 
 *   **Purpose:** To take the stream of tokens from the lexer and build an Abstract Syntax Tree (AST) that represents the grammatical structure of the code.
-*   **Implementation:** This will be implemented using `menhir`, a parser generator for OCaml.
+*   **Implementation:** This is implemented using `menhir`, a parser generator for OCaml.
 *   **Input:** A stream of tokens from the lexer.
-*   **Output:** An AST.
-*   **Modules:** `parser.mly`, `ast.ml` (to define the AST data types).
+*   **Output:** An AST (currently a placeholder that accepts EOF).
+*   **Modules:** `grammar.mly`, `tokens.mli` (defines token types).
 
 ## 3. Semantic Analysis
 
@@ -24,7 +28,7 @@ This document outlines the structure of a compiler for the C programming languag
 *   **Implementation:** A recursive function that traverses the AST.
 *   **Input:** The AST from the parser.
 *   **Output:** An annotated AST (with type information) or a list of semantic errors.
-*   **Modules:** `semantics.ml`
+*   **Modules:** `semantics.ml` (planned)
 
 ## 4. Intermediate Representation (IR) Generation
 
@@ -32,7 +36,7 @@ This document outlines the structure of a compiler for the C programming languag
 *   **Implementation:** A module that traverses the AST and generates IR code.
 *   **Input:** The semantically-checked AST.
 *   **Output:** A sequence of IR instructions.
-*   **Modules:** `ir.ml`
+*   **Modules:** `ir.ml` (planned)
 
 ## 5. Code Generation
 
@@ -40,7 +44,7 @@ This document outlines the structure of a compiler for the C programming languag
 *   **Implementation:** A module that maps IR instructions to assembly instructions.
 *   **Input:** The IR code.
 *   **Output:** An assembly file (`.s`).
-*   **Modules:** `codegen.ml`
+*   **Modules:** `codegen.ml` (planned)
 
 ## 6. Driver
 

@@ -1,0 +1,33 @@
+# OCaml and Dune build artifacts
+_build/
+*.install
+*.opam
+*.merlin
+
+# Generated files
+*.ml
+*.mli
+*.cmi
+*.cmo
+*.cmx
+*.o
+*.a
+*.so
+*.cmxs
+*.cma
+*.cmxa
+
+# OCamllex and Menhir generated files
+lexer.ml
+parser.ml
+parser.mli
+grammar.ml
+grammar.mli
+
+# Editor/IDE files
+.DS_Store
+.vscode/
+.idea/
+
+# Opam switch files
+_opam/
