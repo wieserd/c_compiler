@@ -1,3 +1,8 @@
+# 1 "lexer.mll"
+ 
+  open Tokens
+
+# 6 "lexer.ml"
 let __ocaml_lex_tables = {
   Lexing.lex_base =
    "\000\000\240\255\241\255\242\255\243\255\244\255\245\255\246\255\
@@ -291,94 +296,94 @@ let rec token lexbuf =
 and __ocaml_lex_token_rec lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
-# 4 "lexer.mll"
-             ( Parser.INT )
-# 297 "lexer.ml"
+# 6 "lexer.mll"
+             ( INT )
+# 302 "lexer.ml"
 
   | 1 ->
-# 5 "lexer.mll"
-             ( Parser.RETURN )
-# 302 "lexer.ml"
+# 7 "lexer.mll"
+             ( RETURN )
+# 307 "lexer.ml"
 
   | 2 ->
 let
-# 6 "lexer.mll"
+# 8 "lexer.mll"
                   lxm
-# 308 "lexer.ml"
+# 313 "lexer.ml"
 = Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_start_pos lexbuf.Lexing.lex_curr_pos in
-# 6 "lexer.mll"
-                      ( Parser.INT_LITERAL (int_of_string lxm) )
-# 312 "lexer.ml"
+# 8 "lexer.mll"
+                      ( INT_LITERAL (int_of_string lxm) )
+# 317 "lexer.ml"
 
   | 3 ->
 let
-# 7 "lexer.mll"
+# 9 "lexer.mll"
                                                             lxm
-# 318 "lexer.ml"
+# 323 "lexer.ml"
 = Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_start_pos lexbuf.Lexing.lex_curr_pos in
-# 7 "lexer.mll"
-                                                                ( Parser.IDENTIFIER lxm )
-# 322 "lexer.ml"
-
-  | 4 ->
-# 8 "lexer.mll"
-             ( Parser.PLUS )
+# 9 "lexer.mll"
+                                                                ( IDENTIFIER lxm )
 # 327 "lexer.ml"
 
-  | 5 ->
-# 9 "lexer.mll"
-             ( Parser.MINUS )
+  | 4 ->
+# 10 "lexer.mll"
+             ( PLUS )
 # 332 "lexer.ml"
 
-  | 6 ->
-# 10 "lexer.mll"
-             ( Parser.STAR )
+  | 5 ->
+# 11 "lexer.mll"
+             ( MINUS )
 # 337 "lexer.ml"
 
-  | 7 ->
-# 11 "lexer.mll"
-             ( Parser.SLASH )
+  | 6 ->
+# 12 "lexer.mll"
+             ( STAR )
 # 342 "lexer.ml"
 
-  | 8 ->
-# 12 "lexer.mll"
-             ( Parser.LPAREN )
+  | 7 ->
+# 13 "lexer.mll"
+             ( SLASH )
 # 347 "lexer.ml"
 
-  | 9 ->
-# 13 "lexer.mll"
-             ( Parser.RPAREN )
+  | 8 ->
+# 14 "lexer.mll"
+             ( LPAREN )
 # 352 "lexer.ml"
 
-  | 10 ->
-# 14 "lexer.mll"
-             ( Parser.LBRACE )
+  | 9 ->
+# 15 "lexer.mll"
+             ( RPAREN )
 # 357 "lexer.ml"
 
-  | 11 ->
-# 15 "lexer.mll"
-             ( Parser.RBRACE )
+  | 10 ->
+# 16 "lexer.mll"
+             ( LBRACE )
 # 362 "lexer.ml"
 
-  | 12 ->
-# 16 "lexer.mll"
-             ( Parser.SEMICOLON )
+  | 11 ->
+# 17 "lexer.mll"
+             ( RBRACE )
 # 367 "lexer.ml"
 
-  | 13 ->
-# 17 "lexer.mll"
-             ( Parser.EOF )
+  | 12 ->
+# 18 "lexer.mll"
+             ( SEMICOLON )
 # 372 "lexer.ml"
 
-  | 14 ->
-# 18 "lexer.mll"
-                         ( token lexbuf )
+  | 13 ->
+# 19 "lexer.mll"
+             ( EOF )
 # 377 "lexer.ml"
 
-  | 15 ->
-# 19 "lexer.mll"
-             ( raise (Failure ("Illegal character: " ^ (Lexing.lexeme lexbuf))) )
+  | 14 ->
+# 20 "lexer.mll"
+                         ( token lexbuf )
 # 382 "lexer.ml"
+
+  | 15 ->
+# 21 "lexer.mll"
+             ( raise (Failure ("Illegal character: " ^ (Lexing.lexeme lexbuf))) )
+# 387 "lexer.ml"
 
   | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf;
       __ocaml_lex_token_rec lexbuf __ocaml_lex_state

@@ -1,7 +1,8 @@
 (executable
  (name main)
  (libraries menhirLib)
- (modules main lexer grammar))
+ (modules main lexer grammar tokens)
+ (modules_without_implementation tokens))
 
 (rule
  (targets lexer.ml)
@@ -13,4 +14,4 @@
  (targets grammar.ml grammar.mli)
  (deps grammar.mly)
  (action
-  (run menhir --external-tokens Grammar --table --explain --base grammar %{deps})))
+  (run menhir --external-tokens Tokens --table --explain --base grammar %{deps})))

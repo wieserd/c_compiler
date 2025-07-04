@@ -1,6 +1,6 @@
 open Lexing
 open Lexer
-open Grammar
+open Tokens
 
 let () = 
   let lexbuf = Lexing.from_channel stdin in
