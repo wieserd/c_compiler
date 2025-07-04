@@ -7,6 +7,12 @@ let () =
     Printf.printf "Parsing successful!\n";
     Semantics.analyze_program program; (* Call semantic analysis *)
     Printf.printf "Semantic analysis complete.\n";
+    let ir_programs = Ir.generate_ir program in (* Call IR generation *)
+    Printf.printf "IR generation complete.\n";
+    let assembly_instructions = Codegen.generate_code ir_programs in (* Call code generation *)
+    Printf.printf "Generated Assembly:\n";
+    Codegen.print_assembly assembly_instructions; (* Print assembly *)
+    Printf.printf "Code generation complete.\n";
   with
   | Failure msg ->
     let pos = lexbuf.lex_curr_p in
