@@ -6,7 +6,6 @@
 %type <Ast.program> program
 
 %{
-  open Tokens
   open Ast
 %}
 
