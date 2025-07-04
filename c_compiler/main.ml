@@ -16,4 +16,3 @@ let () =
     Printf.eprintf "Parsing error at line %d, character %d\n" 
       lexbuf.lex_curr_p.pos_lnum
       (lexbuf.lex_curr_p.pos_cnum - lexbuf.lex_curr_p.pos_bol)
-
